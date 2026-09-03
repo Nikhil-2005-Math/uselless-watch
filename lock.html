@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#090d16">
+  <title>ChronoSense // Lock Screen</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="lock.css">
+</head>
+<body class="lock-screen">
+  <header class="lock-header">
+    <a class="brand" href="index.html" aria-label="Return to ChronoSense">
+      <span class="brand-mark" aria-hidden="true">◷</span>
+      <span>ChronoSense <span class="brand-slash">//</span> Lock Interface</span>
+    </a>
+    <span class="lock-status"><span class="live-dot"></span> SYSTEM LOCKED</span>
+  </header>
+
+  <main class="lock-main">
+    <section class="lock-copy" aria-labelledby="lock-title">
+      <p class="eyebrow">Temporal security layer / optical standby</p>
+      <h1 id="lock-title">Keep watching.</h1>
+      <p class="lock-message">A small parade of clocks is passing by while your time waits safely behind the dial.</p>
+    </section>
+
+    <section class="clock-wall" aria-label="Animated clocks">
+      <div class="wall-line line-a"><div class="wall-clock clock-a"><span class="wall-hand wall-hour"></span><span class="wall-hand wall-minute"></span><span class="wall-pin"></span></div><div class="wall-clock clock-b"><span class="wall-hand wall-hour"></span><span class="wall-hand wall-minute"></span><span class="wall-pin"></span></div></div>
+      <div class="wall-line line-b"><div class="wall-clock clock-c"><span class="wall-hand wall-hour"></span><span class="wall-hand wall-minute"></span><span class="wall-pin"></span></div><div class="wall-clock clock-d"><span class="wall-hand wall-hour"></span><span class="wall-hand wall-minute"></span><span class="wall-pin"></span></div></div>
+      <div class="wall-line line-c"><div class="wall-clock clock-e"><span class="wall-hand wall-hour"></span><span class="wall-hand wall-minute"></span><span class="wall-pin"></span></div><div class="wall-clock clock-f"><span class="wall-hand wall-hour"></span><span class="wall-hand wall-minute"></span><span class="wall-pin"></span></div></div>
+    </section>
+
+    <section class="lock-panel" aria-label="Current time and unlock controls">
+      <div class="current-time" id="current-time">00:00</div>
+      <div class="current-date" id="current-date">Loading local time...</div>
+      <button class="unlock-button" id="unlock-button" type="button"><span class="unlock-icon" aria-hidden="true">→</span><span>Slide to unlock</span><span class="unlock-arrow" aria-hidden="true">↗</span></button>
+      <p class="lock-hint">Press Enter or click to continue to optical recovery</p>
+    </section>
+  </main>
+
+  <footer class="lock-footer"><span>CHRONOSENSE / LOCAL DEVICE</span><span>NO NETWORK REQUIRED</span></footer>
+  <script src="lock.js"></script>
+</body>
+</html>
