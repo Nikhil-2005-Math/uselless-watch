@@ -3,130 +3,43 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script>if (!new URLSearchParams(window.location.search).has('unlocked')) window.location.replace('lock.html');</script>
-  <title>ChronoSense Neural Dial Vision</title>
+  <meta name="theme-color" content="#090d16">
+  <title>ChronoSense // Lock Screen</title>
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="lock.css">
 </head>
-<body>
-  <header class="site-header">
-    <a class="brand" href="#upload" aria-label="Analog Clock Reader home">
+<body class="lock-screen">
+  <header class="lock-header">
+    <a class="brand" href="index.html?unlocked=1" aria-label="Return to ChronoSense">
       <span class="brand-mark" aria-hidden="true">◷</span>
-      <span>ChronoSense <span class="brand-slash">//</span> Neural Chronometer</span>
+      <span>ChronoSense <span class="brand-slash">//</span> Lock Interface</span>
     </a>
-    <nav class="tabs" aria-label="Primary navigation">
-      <button class="tab is-active" data-view="upload" type="button">Upload &amp; Analyze</button>
-      <button class="tab" data-view="history" type="button">Scan History <span class="history-count" hidden>0</span></button>
-    </nav>
+    <span class="lock-status"><span class="live-dot"></span> SYSTEM LOCKED</span>
   </header>
 
-  <main>
-    <section class="view upload-view is-visible" id="upload-view" aria-labelledby="upload-heading">
-      <div class="intro">
-        <p class="eyebrow">Neural vision system / optical recovery</p>
-        <h1 id="upload-heading">ChronoSense Neural Dial Vision</h1>
-        <p class="intro-copy">High-precision analog time extraction, processed locally with enterprise-grade visual telemetry.</p>
-      </div>
-
-      <div class="workspace-grid">
-        <div class="upload-card panel">
-          <div class="panel-heading">
-            <div>
-              <p class="section-label">Optical input channel</p>
-              <h2>Upload watch image</h2>
-            </div>
-            <span class="step-number">01</span>
-          </div>
-
-          <div class="drop-zone" id="drop-zone" tabindex="0" role="button" aria-label="Upload an analog clock photo">
-            <input id="file-input" type="file" accept="image/png,image/jpeg,image/webp" hidden>
-            <div class="drop-content" id="drop-content">
-              <span class="upload-icon" aria-hidden="true">↑</span>
-              <strong>Drop a watch photo to initialize</strong>
-              <span>or click to browse local files</span>
-              <small>PNG, JPG, JPEG, or WEBP · up to 1200px processed locally</small>
-            </div>
-            <div class="preview-content" id="preview-content" hidden>
-              <img id="image-preview" alt="Selected analog clock preview">
-              <div class="preview-meta">
-                <span id="file-name">clock-photo.jpg</span>
-                <button class="text-button" id="remove-image" type="button">Remove</button>
-              </div>
-            </div>
-          </div>
-
-          <p class="upload-status" id="upload-status" aria-live="polite"></p>
-
-          <div class="settings" aria-label="Analysis settings">
-            <div class="setting-row">
-              <div><strong>Voice Feedback</strong><span>Deliver the assistant response aloud</span></div>
-              <label class="switch"><input id="voice-toggle" type="checkbox" checked><span class="slider"></span><span class="sr-only">Voice Announce</span></label>
-            </div>
-            <div class="setting-row">
-              <div><strong>Diagnostic Telemetry</strong><span>Expose neural processing diagnostics</span></div>
-              <label class="switch"><input id="telemetry-toggle" type="checkbox" checked><span class="slider"></span><span class="sr-only">Diagnostic Telemetry</span></label>
-            </div>
-          </div>
-
-          <button class="primary-button" id="analyze-button" type="button" disabled>
-            <span>Initiate Optical Time Recovery</span><span aria-hidden="true">↗</span>
-          </button>
-        </div>
-
-        <aside class="aside-note">
-          <span class="aside-rule"></span>
-          <p class="section-label">System note</p>
-          <p>Our model is trained on millions of clocks and still recommends the same radical solution: glance down.</p>
-          <div class="aside-stat"><span>Analysis mode</span><strong>Pointless / local</strong></div>
-          <div class="aside-stat"><span>Network required</span><strong>No</strong></div>
-        </aside>
-      </div>
+  <main class="lock-main">
+    <section class="lock-copy" aria-labelledby="lock-title">
+      <p class="eyebrow">Temporal security layer / optical standby</p>
+      <h1 id="lock-title">Keep watching.</h1>
+      <p class="lock-message">A small parade of clocks is passing by while your time waits safely behind the dial.</p>
+      <p class="scan-prompt"><span aria-hidden="true">↳</span> You can scan your watch and see the time.</p>
     </section>
 
-    <section class="view history-view" id="history-view" aria-labelledby="history-heading" hidden>
-      <div class="history-header">
-        <div>
-          <p class="eyebrow">A record of avoidable effort</p>
-          <h1 id="history-heading">Scan History</h1>
-        </div>
-        <div class="history-actions"><p class="wasted-total">Total Time Wasted <strong id="wasted-total">0.00s</strong></p><button class="secondary-button" id="clear-history" type="button" hidden>Clear all history</button></div>
-      </div>
-      <div class="history-list" id="history-list"></div>
-      <div class="empty-state" id="empty-state">
-        <span class="empty-mark" aria-hidden="true">∅</span>
-        <h2>No scans yet</h2>
-        <p>Your future time-wasting decisions will appear here.</p>
-        <button class="secondary-button" id="empty-upload" type="button">Upload a watch</button>
-      </div>
+    <section class="clock-wall" aria-label="Animated clocks">
+      <div class="wall-line line-a"><div class="wall-clock clock-a"><span class="wall-hand wall-hour"></span><span class="wall-hand wall-minute"></span><span class="wall-pin"></span></div><div class="wall-clock clock-b"><span class="wall-hand wall-hour"></span><span class="wall-hand wall-minute"></span><span class="wall-pin"></span></div></div>
+      <div class="wall-line line-b"><div class="wall-clock clock-c"><span class="wall-hand wall-hour"></span><span class="wall-hand wall-minute"></span><span class="wall-pin"></span></div><div class="wall-clock clock-d"><span class="wall-hand wall-hour"></span><span class="wall-hand wall-minute"></span><span class="wall-pin"></span></div></div>
+      <div class="wall-line line-c"><div class="wall-clock clock-e"><span class="wall-hand wall-hour"></span><span class="wall-hand wall-minute"></span><span class="wall-pin"></span></div><div class="wall-clock clock-f"><span class="wall-hand wall-hour"></span><span class="wall-hand wall-minute"></span><span class="wall-pin"></span></div></div>
+    </section>
+
+    <section class="lock-panel" aria-label="Current time and unlock controls">
+      <div class="current-time" id="current-time">00:00</div>
+      <div class="current-date" id="current-date">Loading local time...</div>
+      <button class="unlock-button" id="unlock-button" type="button"><span class="unlock-icon" aria-hidden="true">→</span><span>Slide to unlock</span><span class="unlock-arrow" aria-hidden="true">↗</span></button>
+      <p class="lock-hint">Press Enter or click to continue to optical recovery</p>
     </section>
   </main>
 
-    <div class="reveal-overlay" id="reveal-overlay" role="dialog" aria-modal="true" aria-labelledby="reveal-title" hidden>
-      <div class="analysis-stage stage-inspection" id="inspection-stage">
-        <div class="stage-kicker"><span class="live-dot"></span> CHRONOSENSE / OPTICAL RECOVERY</div>
-        <div class="scan-frame"><img id="scan-image" alt="Watch under neural inspection"><span class="scan-laser"></span></div>
-        <p class="scan-status" id="scan-status">[1/3] Detecting bezel geometry &amp; radial pivot...</p>
-        <div class="scan-progress"><span></span></div>
-      </div>
-      <div class="analysis-stage stage-triumph" id="triumph-stage" hidden>
-        <p class="stage-kicker">SYNTHESIS COMPLETE / HUMAN-READABLE OUTPUT</p>
-        <p class="confidence-badge">99.8% Neural Confidence</p>
-        <h2 class="digital-time" id="digital-time" aria-label="Current local time"></h2>
-        <p class="triumph-caption">Analog time recovered with exceptional precision.</p>
-      </div>
-      <div class="analysis-stage stage-roast" id="roast-stage" hidden>
-        <p class="stage-kicker">FINAL SYSTEM ASSESSMENT</p>
-        <div class="stamp">OR JUST LOOK AT IT</div>
-        <h2 class="reveal-title" id="reveal-title" aria-live="assertive"></h2>
-        <p class="reveal-stats">Processing Latency: 4.12s <span>|</span> Human Glance Time: 0.12s <span>|</span> Effort Wasted: 99.9%</p>
-        <div class="roast-card"><p id="roast-copy"></p></div>
-        <div class="reveal-controls">
-          <button class="secondary-button light-button" id="replay-voice" type="button"><span aria-hidden="true">◉</span> Replay roast</button>
-          <button class="primary-button amber-button" id="upload-another" type="button">Analyze another watch <span aria-hidden="true">↗</span></button>
-        </div>
-      </div>
-    </div>
-
-  <div class="toast" id="toast" role="status" aria-live="polite"></div>
-  <script src="app.js"></script>
+  <footer class="lock-footer"><span>CHRONOSENSE / LOCAL DEVICE</span><span>NO NETWORK REQUIRED</span></footer>
+  <script src="lock.js"></script>
 </body>
 </html>
