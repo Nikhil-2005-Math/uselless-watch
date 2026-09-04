@@ -14,10 +14,11 @@
   function unlock() {
     unlockButton.classList.add('is-unlocking');
     unlockButton.querySelector('span:nth-child(2)').textContent = 'Opening optical recovery';
-    window.setTimeout(() => { window.location.href = 'index.html'; }, 420);
+    window.setTimeout(() => { window.location.href = 'index.html?unlocked=1'; }, 420);
   }
 
   unlockButton.addEventListener('click', unlock);
+  document.addEventListener('keydown', (event) => { if (event.key === 'Enter') unlock(); });
   updateClock();
   window.setInterval(updateClock, 1000);
 })();
